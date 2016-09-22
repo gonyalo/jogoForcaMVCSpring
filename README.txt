@@ -25,7 +25,6 @@ installation
 /*****/ notes
 
 
-/*****/ notes_end
 /*****/
 /*****/
 /*****/
