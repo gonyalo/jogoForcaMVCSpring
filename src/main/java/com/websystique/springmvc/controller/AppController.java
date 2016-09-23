@@ -197,12 +197,20 @@ public class AppController {
     @RequestMapping(value ={"/submitPair"}, method = RequestMethod.GET)
     public String submitPair(ModelMap model, @RequestParam("category") String category, @RequestParam("difficulty") String difficulty){
 
+        //This all block is from the "showLetsPlay" function //TO_DO
+        List<Teste> listaTestes = serviceTeste.findAllTestes();
+        model.addAttribute("listaTestes", listaTestes);
+        List<Category> listCategories = serviceCategory.findAllCategories();
+        model.addAttribute("listCategories", listCategories);
+        List<Difficulty> listDifficulties = serviceDifficulty.findAllDifficulties();
+        model.addAttribute("listDifficulties", listDifficulties);
+        //This all block is from the "showLetsPlay" function //TO_DO ____________END
+
 
         model.addAttribute("categoryTeste", category);
         model.addAttribute("difficultyteste", difficulty);
 
-        return ""; 
         //return "redirect:/showLetsPlay";
-        //return "letsPlay";
+        return "letsPlay";
     }
 }
