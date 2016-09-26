@@ -19,16 +19,16 @@
  
  
 <body>
-    <h1>Lets Play</h1>
+    <h1>Play</h1>
   
     <p> Choose a category and the difficulty </p>
 
     <a href="<c:url value='/index' />"> Back to Welcome Page</a>
     <br>
-    <br>
 
 
 
+<!--
     <form action="<c:url value='submitPair' />" method="get" >
         <p>Escolhe uma categoria.</p>
         <select name="category">
@@ -50,44 +50,13 @@
         <br>
         <input type="submit" value="Jogar">
     </form>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+-->
 
 
-
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     <p>Categoria escolhida: ${categoryTeste}</p>
     <p>Para fazer debug</p>
     <p>Dificuldade escolhida: ${difficultyteste}</p>
     <p>Para fazer          debug       </p>
-
-  <!--
-    <table>
-        <tr>
-            <td>NAME</td><td>Joining Date</td><td>Salary</td><td>SSN</td><td></td>
-        </tr>
-        <c:forEach items="${employees}" var="employee">
-            <tr>
-            <td>${employee.name}</td>
-            <td>${employee.joiningDate}</td>
-            <td>${employee.salary}</td>
-            <td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${employee.ssn}</a></td>
-            <td><a href="<c:url value='/delete-${employee.ssn}-employee' />">delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-    <br/>
-    <a href="<c:url value='/new' />">Add New Employee</a>
-   -->
 
 </body>
 </html>
