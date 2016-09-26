@@ -56,18 +56,18 @@
     <br>
     <br>
 
+    
 
 
 
-
     <br>
     <br>
     <br>
     <br>
     <br>
-    <p>Categoria escolhida: ${categoryTeste}</p>
+    <p>Categoria escolhida: ${category}</p>
     <p>Para fazer debug</p>
-    <p>Dificuldade escolhida: ${difficultyteste}</p>
+    <p>Dificuldade escolhida: ${difficulty}</p>
     <p>Para fazer          debug       </p>
 
   <!--

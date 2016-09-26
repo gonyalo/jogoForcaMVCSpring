@@ -25,8 +25,24 @@
 
     <a href="<c:url value='/index' />"> Back to Welcome Page</a>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <img src="<c:url value='views/1.png'/>"/>
+    <img src="<c:url value='views/1.png'/>"/>
+    <img src="<c:url value='/views/1.png'/>"/>
+    <img src="<c:url value='images/1.png'/>"/>
+    <img src="<c:url value='/images/1.png'/>"/>
+    <img src="1.png">
+    <br>
+    <br>
 
+    <p>Escreve apenas UMA letra.</p>
+    <input type="text" value=""></input> <input type="submit" value="try this letter">
+
+    <p>Palavra de Jogo: ${result}</p>
 
 <!--
     <form action="<c:url value='submitPair' />" method="get" >
@@ -51,11 +67,14 @@
         <input type="submit" value="Jogar">
     </form>
 -->
-
-
-    <p>Categoria escolhida: ${categoryTeste}</p>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <p>Categoria escolhida: ${category}</p>
     <p>Para fazer debug</p>
-    <p>Dificuldade escolhida: ${difficultyteste}</p>
+    <p>Dificuldade escolhida: ${difficulty}</p>
     <p>Para fazer          debug       </p>
 
 </body>

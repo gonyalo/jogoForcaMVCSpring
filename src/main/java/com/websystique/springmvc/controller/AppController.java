@@ -203,8 +203,11 @@ public class AppController {
         model.addAttribute("listDifficulties", listDifficulties);
         //This all block is from the "showLetsPlay" function //TO_DO ____________END
         */
-        model.addAttribute("categoryTeste", category);
-        model.addAttribute("difficultyteste", difficulty);
+        String result = "* * *";
+        model.addAttribute("result", result);
+
+        model.addAttribute("category", category);
+        model.addAttribute("difficulty", difficulty);
         
         //return "redirect:/showLetsPlay";
         return "play";
