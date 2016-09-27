@@ -31,6 +31,9 @@ import com.websystique.springmvc.service.InitiateGameServiceInterface;
 import com.websystique.springmvc.service.WordServiceInterface;
 import com.websystique.springmvc.model.Word;
 
+import java.util.Random;
+
+
 @Controller
 @RequestMapping("/")
 public class AppController {
@@ -216,14 +219,12 @@ public class AppController {
 
     @RequestMapping(value ={"/submitPair"}, method = RequestMethod.GET)
     public String submitPair(ModelMap model, @RequestParam("category") String category, @RequestParam("difficulty") String difficulty){
- 
-
-        
-        //initiateNewGame(serviceWordCategory.findByCategoryAndDifficulty(category, difficulty););
 
         List<Word> listWords = (List<Word>) serviceWord.findWordByDifficultyAndCategory(difficulty, category);
         model.addAttribute("listWords",listWords);
         
+        initiateNewGame(listWords);
+
         //model.addAttribute("encodedWord", this.encodedWord);
         //add a number of attempts to lose
             //example: <p>${attemptsToLose} </p>
@@ -258,10 +259,14 @@ public class AppController {
         return "play";
     }
 
-    //public void initiateNewGame(List<>){ // I think this should be protected
-        //this.realWord = word;
-        //this.encodedWord="":
-        //for (int i=0; i< realWord.length() ;i++)
-        //    this.encodedWord += "*";
-    //}
+    public void initiateNewGame(List<Word> listWords){ // I think this should be protected
+        
+        Random rd = new Random();
+        Word word = listWords.get( rd.nextInt(listWords.size()-1));
+
+        this.realWord = word.getDescription();
+        this.encodedWord="";
+        for (int i=0; i< realWord.length() ;i++)
+            this.encodedWord += "*";
+    }
 }
