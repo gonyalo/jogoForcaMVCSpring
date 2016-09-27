@@ -53,6 +53,7 @@
 
     <p>Categoria escolhida: ${category}</p>
     <p>Dificuldade escolhida: ${difficulty}</p>
+    <p>attempsToLose: ${attemptsToLose}</p>
 
     <br>
     <br>

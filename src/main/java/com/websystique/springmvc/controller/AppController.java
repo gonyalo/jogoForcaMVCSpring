@@ -66,6 +66,7 @@ public class AppController {
     String category = "";
     String difficulty = "";
     int attemptsToLose = 6;
+    int variavelGlobal = 317;
 
 
     /*
@@ -232,9 +233,11 @@ public class AppController {
         //just for debug
         this.category = category;
         this.difficulty = difficulty;
+        model.addAttribute("encodedWord", this.encodedWord);
         model.addAttribute("category", this.category);
         model.addAttribute("difficulty", this.difficulty);
-
+        model.addAttribute("attemptsToLose", this.attemptsToLose);
+        //model.addAttribute("attemptsToLose", String.valueOf(this.attemptsToLose));
         return "play";
     }
 
@@ -242,19 +245,26 @@ public class AppController {
     public String play(ModelMap model, @RequestParam("attempt") char attempt){
 
         
-        //passar para minuscula
 
-        //if (!realWord.contains(attempt)){
-            //if(this.attempsToLose==1)
-                //return "gameOver"; //redirecionar para outra página é a alternativa mais simples. Mas por agora é o que vou fazer. Mais tarde melhora-se
+        //lowercase?
+        //just leters?
+        //throw Exception
+
+
+        if (!realWord.contains(String.valueOf(attempt))){
+            if(this.attemptsToLose==1)
+                return "gameOver"; //redirecionar para outra página é a alternativa mais simples. Mas por agora é o que vou fazer. Mais tarde melhora-se
+            this.attemptsToLose--;
             //this.attemptsToLose-=1;  //    número de tentativas baixa.
         //    return essa letra nao pertence à palavra
-        //}
+        }
         
-
+        
+        model.addAttribute("encodedWord", this.encodedWord);
         model.addAttribute("category", this.category);
         model.addAttribute("difficulty", this.difficulty);
-        model.addAttribute("encodedWord", this.encodedWord);
+        
+        model.addAttribute("attemptsToLose", this.attemptsToLose);
 
         return "play";
     }
@@ -264,6 +274,7 @@ public class AppController {
         Random rd = new Random();
         Word word = listWords.get( rd.nextInt(listWords.size()-1));
 
+        this.attemptsToLose=6;//Bad programming
         this.realWord = word.getDescription();
         this.encodedWord="";
         for (int i=0; i< realWord.length() ;i++)
