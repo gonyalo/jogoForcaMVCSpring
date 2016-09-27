@@ -1,4 +1,3 @@
-
 SELECT id, description
 FROM 	websystique.word as word
 	JOIN
@@ -7,13 +6,13 @@ FROM 	websystique.word as word
 		WHERE 	difficulty_id = 	(
 						SELECT id
 						FROM websystique.difficulty
-						WHERE description like 'easy'
+						WHERE description like 'difficulty'
 						)
 			AND
 				category_id= 	(
 						SELECT id
 						FROM websystique.category
-						WHERE description like 'objecto'
+						WHERE description like 'category'
 						)
 		) as result
 WHERE 	result_word_id = id
