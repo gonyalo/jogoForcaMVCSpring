@@ -28,6 +28,9 @@ import com.websystique.springmvc.model.Difficulty;
 
 import com.websystique.springmvc.service.InitiateGameServiceInterface;
  
+import com.websystique.springmvc.service.WordServiceInterface;
+import com.websystique.springmvc.model.Word;
+
 @Controller
 @RequestMapping("/")
 public class AppController {
@@ -44,6 +47,9 @@ public class AppController {
 
     @Autowired
     DifficultyServiceInterface serviceDifficulty;
+
+    @Autowired
+    WordServiceInterface serviceWord;
 
     //@Autowired
     //InitiateGameServiceInterface serviceInitiateGame;
@@ -192,6 +198,10 @@ public class AppController {
         List<Difficulty> listDifficulties = serviceDifficulty.findAllDifficulties();
         model.addAttribute("listDifficulties", listDifficulties);
 
+        //test print word
+        List<Word> listWords = serviceWord.findAllWords();
+        model.addAttribute("listWords", listWords);
+
         //List<Employee> employees = service.findAllEmployees();
         //model.addAttribute("employees", employees);
 
@@ -226,7 +236,8 @@ public class AppController {
         model.addAttribute("category", this.category);
         model.addAttribute("difficulty", this.difficulty);
         
-
+        //test print word
+        //model.addAttribute("word", )
 
         return "play";
     }
