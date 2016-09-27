@@ -25,6 +25,9 @@ import com.websystique.springmvc.service.CategoryServiceInterface;
 import com.websystique.springmvc.model.Category;
 import com.websystique.springmvc.service.DifficultyServiceInterface;
 import com.websystique.springmvc.model.Difficulty;
+
+//import com.websystique.springmvc.service.WordCategoryServiceInterface;
+//import com.websystique.springmvc.service.WordCategoryServiceImp;
  
 @Controller
 @RequestMapping("/")
@@ -43,9 +46,22 @@ public class AppController {
     @Autowired
     DifficultyServiceInterface serviceDifficulty;
 
+    //@Autowired
+    //WordCategoryServiceInterface serviceWordCategory;
+
+
     @Autowired
     MessageSource messageSource;
  
+
+    /*String realWord = "";
+    String encodedWord = "nenhumaPalavraSelecionada";
+    String category = "";
+    String difficulty = "";
+    int attemptsToLose = 6;
+*/
+
+
     /*
      * This method will list all existing employees.
      */
@@ -193,23 +209,50 @@ public class AppController {
 
     @RequestMapping(value ={"/submitPair"}, method = RequestMethod.GET)
     public String submitPair(ModelMap model, @RequestParam("category") String category, @RequestParam("difficulty") String difficulty){
-        /*
-        //This all block is from the "showLetsPlay" function //TO_DO
-        List<Teste> listaTestes = serviceTeste.findAllTestes();
-        model.addAttribute("listaTestes", listaTestes);
-        List<Category> listCategories = serviceCategory.findAllCategories();
-        model.addAttribute("listCategories", listCategories);
-        List<Difficulty> listDifficulties = serviceDifficulty.findAllDifficulties();
-        model.addAttribute("listDifficulties", listDifficulties);
-        //This all block is from the "showLetsPlay" function //TO_DO ____________END
-        */
-        String result = "* * *";
-        model.addAttribute("result", result);
+ 
 
-        model.addAttribute("category", category);
-        model.addAttribute("difficulty", difficulty);
+        //this.category = category;
+        //this.difficulty = difficulty;
+
+        //initiateNewGame(serviceWordCategory.findByCategoryAndDifficulty(category, difficulty););
+
+
+
+
+        //model.addAttribute("encodedWord", this.encodedWord);
+        //add a number of attempts to lose
+            //example: <p>${attemptsToLose} </p>
         
-        //return "redirect:/showLetsPlay";
+
+
+        //just for debug
+        //model.addAttribute("category", category);
+        //model.addAttribute("difficulty", difficulty);
+        
         return "play";
+    }
+
+    @RequestMapping(value={"/play"}, method=RequestMethod.GET)
+    public String play(ModelMap model, @RequestParam("attempt") char attempt){
+
+        
+        //passar para minuscula
+
+        //if (!realWord.contains(attempt)){
+            //if(this.attempsToLose==1)
+                //return "gameOver"; //redirecionar para outra página é a alternativa mais simples. Mas por agora é o que vou fazer. Mais tarde melhora-se
+            //this.attemptsToLose-=1;  //    número de tentativas baixa.
+        //    return essa letra nao pertence à palavra
+        //}
+        //model.addAttribute("encodedWord", this.encodedWord);
+
+        return "play";
+    }
+
+    public void initiateNewGame(String word){ // I think this should be protected
+        //this.realWord = word;
+        //this.encodedWord="":
+        //for (int i=0; i< realWord.length() ;i++)
+        //    this.encodedWord += "*";
     }
 }

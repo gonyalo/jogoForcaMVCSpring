@@ -30,7 +30,8 @@
     <br>
     <br>
 
-    <img src="<c:url value='views/1.png'/>"/>
+    <img src="<c:url value='/views/images/1.png'/>"/>
+    <img src="<c:url value='views/images/1.png'/>"/>
     <img src="<c:url value='views/1.png'/>"/>
     <img src="<c:url value='/views/1.png'/>"/>
     <img src="<c:url value='images/1.png'/>"/>
@@ -38,44 +39,20 @@
     <img src="1.png">
     <br>
     <br>
-
+<%--
     <p>Escreve apenas UMA letra.</p>
-    <input type="text" value=""></input> <input type="submit" value="try this letter">
-
-    <p>Palavra de Jogo: ${result}</p>
-
-<!--
-    <form action="<c:url value='submitPair' />" method="get" >
-        <p>Escolhe uma categoria.</p>
-        <select name="category">
-            <option>----</option>
-            <c:forEach items="${listCategories}" var="category">
-                <option>${category.description}</option> 
-            </c:forEach>
-        </select>
-        <br>
-        <br>
-        <p>Escolhe uma dificuldade.</p>
-        <select name="difficulty">
-            <option>----</option>
-            <c:forEach items="${listDifficulties}" var="difficulty">
-                <option>${difficulty.description}</option> 
-            </c:forEach>
-        </select>
-        <br>
-        <br>
-        <input type="submit" value="Jogar">
+    <form action="<c:url value='play'/>" method="get" >
+        <input name="attempt" type="text" >
+        <input type="submit" value="try this letter">
     </form>
--->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <p>Categoria escolhida: ${category}</p>
-    <p>Para fazer debug</p>
-    <p>Dificuldade escolhida: ${difficulty}</p>
-    <p>Para fazer          debug       </p>
+    
+    <p>Palavra de Jogo: ${encodedWord}</p>
 
+    <br>
+    <br>
+
+    <p>Categoria escolhida: ${category}</p>
+    <p>Dificuldade escolhida: ${difficulty}</p>
+--%>
 </body>
 </html>

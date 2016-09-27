@@ -32,7 +32,7 @@
     <form action="<c:url value='submitPair' />" method="get" >
         <p>Escolhe uma categoria.</p>
         <select name="category">
-            <option>----</option>
+            <%--<option>----</option> just to prevent sending this to database TO_DO--%>
             <c:forEach items="${listCategories}" var="category">
                 <option>${category.description}</option> 
             </c:forEach>
@@ -41,7 +41,7 @@
         <br>
         <p>Escolhe uma dificuldade.</p>
         <select name="difficulty">
-            <option>----</option>
+            <%--<option>----</option> just to prevent sending this to database TO_DO--%> 
             <c:forEach items="${listDifficulties}" var="difficulty">
                 <option>${difficulty.description}</option> 
             </c:forEach>
@@ -52,42 +52,10 @@
     </form>
     <br>
     <br>
-    <br>
-    <br>
-    <br>
-
-    
-
 
 
     <br>
     <br>
     <br>
-    <br>
-    <br>
-    <p>Categoria escolhida: ${category}</p>
-    <p>Para fazer debug</p>
-    <p>Dificuldade escolhida: ${difficulty}</p>
-    <p>Para fazer          debug       </p>
-
-  <!--
-    <table>
-        <tr>
-            <td>NAME</td><td>Joining Date</td><td>Salary</td><td>SSN</td><td></td>
-        </tr>
-        <c:forEach items="${employees}" var="employee">
-            <tr>
-            <td>${employee.name}</td>
-            <td>${employee.joiningDate}</td>
-            <td>${employee.salary}</td>
-            <td><a href="<c:url value='/edit-${employee.ssn}-employee' />">${employee.ssn}</a></td>
-            <td><a href="<c:url value='/delete-${employee.ssn}-employee' />">delete</a></td>
-            </tr>
-        </c:forEach>
-    </table>
-    <br/>
-    <a href="<c:url value='/new' />">Add New Employee</a>
-   -->
-
 </body>
 </html>
