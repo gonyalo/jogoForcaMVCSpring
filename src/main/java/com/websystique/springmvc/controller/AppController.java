@@ -26,8 +26,7 @@ import com.websystique.springmvc.model.Category;
 import com.websystique.springmvc.service.DifficultyServiceInterface;
 import com.websystique.springmvc.model.Difficulty;
 
-//import com.websystique.springmvc.service.WordCategoryServiceInterface;
-//import com.websystique.springmvc.service.WordCategoryServiceImp;
+import com.websystique.springmvc.service.InitiateGameServiceInterface;
  
 @Controller
 @RequestMapping("/")
@@ -47,8 +46,7 @@ public class AppController {
     DifficultyServiceInterface serviceDifficulty;
 
     //@Autowired
-    //WordCategoryServiceInterface serviceWordCategory;
-
+    //InitiateGameServiceInterface serviceInitiateGame;
 
     @Autowired
     MessageSource messageSource;
@@ -249,16 +247,15 @@ public class AppController {
 
         model.addAttribute("category", this.category);
         model.addAttribute("difficulty", this.difficulty);
-
         model.addAttribute("encodedWord", this.encodedWord);
 
         return "play";
     }
 
-    public void initiateNewGame(String word){ // I think this should be protected
+    //public void initiateNewGame(List<>){ // I think this should be protected
         //this.realWord = word;
         //this.encodedWord="":
         //for (int i=0; i< realWord.length() ;i++)
         //    this.encodedWord += "*";
-    }
+    //}
 }
