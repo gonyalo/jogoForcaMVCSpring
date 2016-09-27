@@ -54,12 +54,11 @@ public class AppController {
     MessageSource messageSource;
  
 
-    /*String realWord = "";
+    String realWord = "";
     String encodedWord = "nenhumaPalavraSelecionada";
     String category = "";
     String difficulty = "";
     int attemptsToLose = 6;
-*/
 
 
     /*
@@ -211,9 +210,7 @@ public class AppController {
     public String submitPair(ModelMap model, @RequestParam("category") String category, @RequestParam("difficulty") String difficulty){
  
 
-        //this.category = category;
-        //this.difficulty = difficulty;
-
+        
         //initiateNewGame(serviceWordCategory.findByCategoryAndDifficulty(category, difficulty););
 
 
@@ -226,9 +223,13 @@ public class AppController {
 
 
         //just for debug
-        //model.addAttribute("category", category);
-        //model.addAttribute("difficulty", difficulty);
+        this.category = category;
+        this.difficulty = difficulty;
+        model.addAttribute("category", this.category);
+        model.addAttribute("difficulty", this.difficulty);
         
+
+
         return "play";
     }
 
@@ -244,7 +245,12 @@ public class AppController {
             //this.attemptsToLose-=1;  //    número de tentativas baixa.
         //    return essa letra nao pertence à palavra
         //}
-        //model.addAttribute("encodedWord", this.encodedWord);
+        
+
+        model.addAttribute("category", this.category);
+        model.addAttribute("difficulty", this.difficulty);
+
+        model.addAttribute("encodedWord", this.encodedWord);
 
         return "play";
     }

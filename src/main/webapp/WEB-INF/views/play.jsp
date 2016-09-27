@@ -39,7 +39,7 @@
     <img src="1.png">
     <br>
     <br>
-<%--
+
     <p>Escreve apenas UMA letra.</p>
     <form action="<c:url value='play'/>" method="get" >
         <input name="attempt" type="text" >
@@ -53,6 +53,6 @@
 
     <p>Categoria escolhida: ${category}</p>
     <p>Dificuldade escolhida: ${difficulty}</p>
---%>
+
 </body>
 </html>
