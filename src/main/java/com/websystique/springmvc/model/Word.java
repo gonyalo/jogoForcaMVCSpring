@@ -46,7 +46,9 @@ public class Word {
         this.description = description;
     }
     
-
+    public String toString(){
+        return description;
+    }
 /* 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

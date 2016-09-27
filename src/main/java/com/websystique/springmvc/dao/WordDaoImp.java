@@ -4,6 +4,7 @@ import java.util.List;
  
 import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
  
@@ -19,6 +20,15 @@ public class WordDaoImp extends AbstractDao<Integer, Word> implements WordDaoInt
     public List<Word> findAllWords(){
         Criteria criteria = createEntityCriteria();
         return (List<Word>) criteria.list();
+    }
+ 
+    public List<Word> findWordByDifficultyAndCategory(String difficulty, String category){
+        SQLQuery query = getSession().createSQLQuery("SELECT id, description FROM websystique.word as word     JOIN    (SELECT word_id as result_word_id       FROM websystique.word_category      WHERE   difficulty_id =     ( SELECT id FROM websystique.difficulty WHERE description like 'easy') AND category_id=   (SELECT id  FROM websystique.category WHERE description like 'objecto' ) ) as result WHERE     result_word_id = id;");
+        //Query query = getSession().createSQLQuery("SELECT id, description FROM websystique.word as word     JOIN    (SELECT word_id as result_word_id       FROM websystique.word_category      WHERE   difficulty_id =     ( SELECT id FROM websystique.difficulty WHERE description like ':difficulty') AND category_id=   (SELECT id  FROM websystique.category WHERE description like ':category' ) ) as result WHERE     result_word_id = id;");
+        //query.setString("difficulty",difficulty);
+        //query.setString("category",category);
+        query.addEntity(Word.class);
+        return (List<Word>)query.list();
     }
  /*
     public Employee findById(int id) {

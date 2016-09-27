@@ -9,6 +9,9 @@ import com.websystique.springmvc.model.Word;
 public interface WordDaoInterface {
  
 	List<Word> findAllWords();
+
+
+	List<Word> findWordByDifficultyAndCategory(String difficulty, String category);
  /*
     Employee findById(int id);
  

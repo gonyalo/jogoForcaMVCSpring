@@ -23,5 +23,6 @@ public interface WordServiceInterface {
     boolean isEmployeeSsnUnique(Integer id, String ssn);*/
 
     List<Word> findAllWords();
+    List<Word> findWordByDifficultyAndCategory(String difficulty, String category);
      
 }

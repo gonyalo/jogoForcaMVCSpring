@@ -29,6 +29,11 @@ public class WordServiceImp implements WordServiceInterface {
         return dao.findAllWords();
     }
 
+
+    public List<Word> findWordByDifficultyAndCategory(String difficulty, String category){
+        return dao.findWordByDifficultyAndCategory(difficulty, category);
+    }
+    
     /*
     @Autowired
     private EmployeeDao dao;

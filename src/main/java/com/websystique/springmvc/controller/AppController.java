@@ -221,7 +221,17 @@ public class AppController {
         
         //initiateNewGame(serviceWordCategory.findByCategoryAndDifficulty(category, difficulty););
 
+        List<Word> listWords = (List<Word>) serviceWord.findWordByDifficultyAndCategory(difficulty, category);
+        //model.addAttribute("listWords", listWords);
+        if(listWords.isEmpty())
+            System.out.println("isEmpty");
+        else{
+            System.out.println("notEmpty.   length equal to: "+ listWords.size());
+        }
 
+        model.addAttribute("listWords",listWords);
+        System.out.println(listWords.toString());
+        System.out.println(listWords.get(0).getDescription());
 
 
         //model.addAttribute("encodedWord", this.encodedWord);

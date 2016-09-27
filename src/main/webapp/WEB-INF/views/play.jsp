@@ -54,5 +54,15 @@
     <p>Categoria escolhida: ${category}</p>
     <p>Dificuldade escolhida: ${difficulty}</p>
 
+    <br>
+    <br>
+
+    <select name="word">
+        <%--<option>----</option> just to prevent sending this to database TO_DO--%> 
+        <c:forEach items="${listWords}" var="word">
+            <option>${word.description}</option> 
+        </c:forEach>
+    </select>
+
 </body>
 </html>
