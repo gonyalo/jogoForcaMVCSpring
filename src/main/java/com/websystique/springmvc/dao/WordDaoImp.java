@@ -23,10 +23,26 @@ public class WordDaoImp extends AbstractDao<Integer, Word> implements WordDaoInt
     }
  
     public List<Word> findWordByDifficultyAndCategory(String difficulty, String category){
-        SQLQuery query = getSession().createSQLQuery("SELECT id, description FROM websystique.word as word     JOIN    (SELECT word_id as result_word_id       FROM websystique.word_category      WHERE   difficulty_id =     ( SELECT id FROM websystique.difficulty WHERE description like 'easy') AND category_id=   (SELECT id  FROM websystique.category WHERE description like 'objecto' ) ) as result WHERE     result_word_id = id;");
+        SQLQuery query = getSession().createSQLQuery("SELECT id, description FROM websystique.word as word     JOIN    (SELECT word_id as result_word_id       FROM websystique.word_category      WHERE   difficulty_id =     ( SELECT id FROM websystique.difficulty WHERE description like :difficulty ) AND category_id=   (SELECT id  FROM websystique.category WHERE description like :category ) ) as result WHERE     result_word_id = id;");
         //Query query = getSession().createSQLQuery("SELECT id, description FROM websystique.word as word     JOIN    (SELECT word_id as result_word_id       FROM websystique.word_category      WHERE   difficulty_id =     ( SELECT id FROM websystique.difficulty WHERE description like ':difficulty') AND category_id=   (SELECT id  FROM websystique.category WHERE description like ':category' ) ) as result WHERE     result_word_id = id;");
-        //query.setString("difficulty",difficulty);
-        //query.setString("category",category);
+
+
+        System.out.println(difficulty);
+        System.out.println(category);
+
+
+        //query.setParameter(1, difficulty);
+        //query.setParameter(2, category);
+
+        //query.setParameter("ccategory","objecto");        
+        //query.setParameter("ddifficulty","easy");
+        
+        query.setString("difficulty",difficulty);
+        query.setString("category",category);
+
+         System.out.println(difficulty);
+        System.out.println(category);
+
         query.addEntity(Word.class);
         return (List<Word>)query.list();
     }
