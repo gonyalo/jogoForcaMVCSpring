@@ -49,6 +49,9 @@
     <p>Palavra de Jogo: ${encodedWord}</p>
 
     <br>
+
+    <p>${feedBack}</p>
+    <br>
     <br>
 
     <p>Categoria escolhida: ${category}</p>

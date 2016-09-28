@@ -62,11 +62,11 @@ public class AppController {
  
 
     String realWord = "";
-    String encodedWord = "nenhumaPalavraSelecionada";
+    //String encodedWord = "nenhumaPalavraSelecionada";
+    StringBuilder encodedWord = new StringBuilder("nenhumaPalavraSelecionada");
     String category = "";
     String difficulty = "";
     int attemptsToLose = 6;
-    int variavelGlobal = 317;
 
 
     /*
@@ -244,7 +244,6 @@ public class AppController {
     @RequestMapping(value={"/play"}, method=RequestMethod.GET)
     public String play(ModelMap model, @RequestParam("attempt") char attempt){
 
-        
 
         //lowercase?
         //just leters?
@@ -253,10 +252,15 @@ public class AppController {
 
         if (!realWord.contains(String.valueOf(attempt))){
             if(this.attemptsToLose==1)
-                return "gameOver"; //redirecionar para outra página é a alternativa mais simples. Mas por agora é o que vou fazer. Mais tarde melhora-se
+                return "gameOver"; 
             this.attemptsToLose--;
-            //this.attemptsToLose-=1;  //    número de tentativas baixa.
-        //    return essa letra nao pertence à palavra
+            model.addAttribute("feedBack", "char: "+ String.valueOf(attempt)+ " does not belongs to word.");
+        } else{
+            //for(int i = 0; i < realWord.length() ; i++){
+              //  if(this.realWord.charAt(i).equals(attempt))
+              //      
+            //}
+            model.addAttribute("feedBack", "char: "+ String.valueOf(attempt)+ " belongs to the word.");
         }
         
         
@@ -276,8 +280,9 @@ public class AppController {
 
         this.attemptsToLose=6;//Bad programming
         this.realWord = word.getDescription();
-        this.encodedWord="";
+        this.encodedWord=new StringBuilder("");
         for (int i=0; i< realWord.length() ;i++)
-            this.encodedWord += "*";
+            this.encodedWord.append("*");
+        //this.auxEncodedWord = new StringBuilder(encodedWord);
     }
 }
