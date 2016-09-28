@@ -176,11 +176,6 @@ public class AppController {
 
 
 
-
-
-
-
-
     /*
      * New methods for "Jogo da Forca"
      */
@@ -243,23 +238,19 @@ public class AppController {
 
     @RequestMapping(value={"/play"}, method=RequestMethod.GET)
     public String play(ModelMap model, @RequestParam("attempt") char attempt){
-
-
         //lowercase?
         //just leters?
         //throw Exception
-
-
         if (!realWord.contains(String.valueOf(attempt))){
             if(this.attemptsToLose==1)
                 return "gameOver"; 
             this.attemptsToLose--;
             model.addAttribute("feedBack", "char: "+ String.valueOf(attempt)+ " does not belongs to word.");
         } else{
-            //for(int i = 0; i < realWord.length() ; i++){
-              //  if(this.realWord.charAt(i).equals(attempt))
-              //      
-            //}
+            for(int i = 0; i < realWord.length() ; i++){
+                if(this.realWord.charAt(i) == attempt)
+                    this.encodedWord.setCharAt(i, attempt);
+            }
             model.addAttribute("feedBack", "char: "+ String.valueOf(attempt)+ " belongs to the word.");
         }
         
