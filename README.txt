@@ -1,5 +1,5 @@
 # jogoForcaMVCSpring
-Passar tudo para inglês.
+
 
 /*****/ index
 
